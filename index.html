@@ -4,16 +4,30 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0"
           name="viewport">
-    <title>Mi primera página web</title>
+    <title>Equipo Krangreburger</title>
     <!-- Vinculamos el CSS externo -->
     <link href="styles.css"
           rel="stylesheet">
 </head>
 <body>
-<h1>¡Bienvenido a mi primera página web!</h1>
+<h1>Equipo Krangreburger</h1>
 <p>Esta página está hecha con HTML, CSS y JavaScript.</p>
-<!-- Botón para probar JavaScript -->
-<button id="colorButton">Cambiar color de fondo</button>
+<!-- Sección del integrante: foto + descripción -->
+<section id="memberSection">
+    <div class="member-card"
+         id="memberCard">
+        <h2 id="memberName">Alumno 1</h2>
+        <img alt="Foto del Alumno 1"
+             id="memberPhoto"
+             src="https://via.placeholder.com/200x200?text=Alumno+1">
+        <p id="memberDesc">Descripción breve del Alumno 1.</p>
+    </div>
+</section>
+<!-- Botones para probar JavaScript -->
+<div class="buttons">
+    <button id="colorButton">Cambiar color de fondo</button>
+    <button id="nextMemberButton">Mostrar siguiente integrante</button>
+</div>
 <!-- Vinculamos el archivo JS -->
 <script src="script.js"></script>
 </body>

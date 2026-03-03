@@ -1,0 +1,76 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    background-color: #f4f4f4;
+}
+
+/* Estilo para el título */
+h1 {
+    color: #333;
+}
+
+/* Estilo para el párrafo */
+p {
+    color: #666;
+    font-size: 18px;
+}
+
+/* Estilo para el botón */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para la tarjeta del integrante */
+.member-card {
+    display: inline-block;
+    width: 260px;
+    padding: 16px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.member-card img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+    margin: 8px auto;
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+/* Mantener contraste en botones y foco accesible */
+button:focus {
+    outline: 3px solid rgba(0,123,255,0.4);
+}
+
+@media (max-width: 480px) {
+    .member-card {
+        width: 90%;
+    }
+
+    .member-card img {
+        width: 160px;
+        height: 160px;
+    }
+}
