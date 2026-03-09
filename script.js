@@ -45,13 +45,13 @@ const teamMembers = [
         github: "https://github.com/nata23-dev"
     },
     {
-        photo: "imagen_equipo/alumno5.jpg", // Ajusta la ruta según tu estructura
-        name: "María García López",
+        photo: "imagen_equipo/ebb5f914-c634-460b-83dd-74228d3b5e9e.jpg", // Ajusta la ruta según tu estructura
+        name: "Andrés Lemus Díaz",
         role: "Estudiante de Ingeniería en Sistemas Computacionales",
-        desc: "Apasionada por la ciberseguridad y el desarrollo de software seguro. Me gusta participar en hackathons y retos de programación.",
-        status: "Security Developer",
+        desc: "Me gusta la ciberseguridad :).",
+        status: "Estudiante",
         color: "#10b981", // Verde
-        github: "https://github.com/maria-garcia"
+        github: "https://github.com/andreslm0"
     },
     {
         photo: "imagen_equipo/alumno6.jpg", // Ajusta la ruta según tu estructura
