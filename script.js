@@ -54,13 +54,13 @@ const teamMembers = [
         github: "https://github.com/andreslm0"
     },
     {
-        photo: "imagen_equipo/alumno6.jpg", // Ajusta la ruta según tu estructura
-        name: "Carlos Rodríguez Pérez",
+        photo: "imagen_equipo/alumno3.jpg", // Ajusta la ruta según tu estructura
+        name: "Deciderio Cervantes Josue Misael",
         role: "Estudiante de Ingeniería en Sistemas Computacionales",
-        desc: "Entusiasta del desarrollo móvil y la inteligencia artificial. Siempre buscando nuevos desafíos y oportunidades de aprendizaje.",
-        status: "Mobile Developer",
-        color: "#8b5cf6", // Púrpura
-        github: "https://github.com/carlos-rodriguez"
+        desc: "Me gusta desarrollar en FrontEnd y también disfruto aprender idiomas.",
+        status: "Frontend Developer",
+        color: "#FB3640", // Rojo
+        github: "https://github.com/Missael040705"
     }
 ];
 
