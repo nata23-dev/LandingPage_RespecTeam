@@ -27,10 +27,10 @@ const teamMembers = [
         github: "https://github.com/alex-mexicano"
     },
     {
-        photo: "Imagenes/alumno6.jpg",
+        photo: "imagen_equipo/alumno6.jpeg",
         name: "Oswaldo Muñiz",
         role: "Estudiante de Ingeniería en Sistemas Computacionales",
-        desc: "Estudiante apasionado por el desarrollo backend y las bases de datos. Me gusta resolver problemas complejos y aprender nuevas tecnologías.",
+        desc: "Estudiante apasionado por el desarrollo backend y las bases de datos. Me gusta resolver problemas complejos y aprender nsobre software libre.",
         status: "Backend Developer",
         color: "#f97316", // Naranja
         github: "https://github.com/oswa900"
