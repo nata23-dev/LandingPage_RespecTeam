@@ -1,70 +1,208 @@
-// Seleccionamos el botón por su ID
-const button = document.getElementById("colorButton");
+// Colores para el fondo
+const bgThemes = ["#f8f9fa", "#eef2ff", "#f0fdf4", "#fff7ed", "#faf5ff", "#ffcccc", "#ccffcc", "#ccccff", "#ffffcc", "#ccebff"];
+let themeIndex = 0;
 
-// Creamos un arreglo con algunos colores
-const colors = [
-    "#8e4343",
-    "#64ff00",
-    "#000000",
-    "#0202bf",
-    "#ffff00"];
+// Colores para la tarjeta del integrante
+const memberDivColors = ["#ffffff", "#ffe0e0", "#e0ffe0", "#e0e0ff", "#ffffe0", "#e7f5ff", "#fff0f0", "#f0fff0"];
+let memberDivColorIndex = 0;
 
-// Variable para llevar el control del color actual
-let index = 0;
-
-// Agregamos un evento "click" al botón
-button.addEventListener("click", function () {
-    // Cambiamos el color de fondo del body
-    document.body.style.backgroundColor = colors[index];
-
-    // Avanzamos al siguiente color
-    index++;
-
-    // Si llegamos al final del arreglo, regresamos al inicio
-    if (index >= colors.length) {
-        index = 0;
-    }
-});
-
-// ------------------- Nueva lógica para integrantes -------------------
-// Array de integrantes: cada objeto tiene nombre, foto (url) y descripción
-const members = [
+// Datos de los 6 integrantes (combinados)
+const teamMembers = [
     {
-        name: "Alumno 1",
-        photo: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fholatelcel.com%2Fwp-content%2Fuploads%2F2022%2F08%2Fhombre-estudiante-universitario.jpg&f=1&nofb=1&ipt=299fb6f4811f81daef02520bf91ef068ae8de2774be6d39292e924592dc4f2ab",
-        desc: "Soy Misa"
+        photo: "imagen_equipo/alumno1.webp",
+        name: "Janet Arredondo Delgado",
+        role: "Estudiante de Ingeniería en Sistemas Computacionales",
+        desc: "Soy estudiante 6to. semestre de la carrera de ingenieria en sistemas computacionales, me gusta dibujar y escuchar música.",
+        status: "Frontend Developer",
+        color: "#3b82f6", // Azul
+        github: "https://github.com/janet-arredondo"
     },
     {
-        name: "Alumno 2",
-        photo: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpngimg.com%2Fuploads%2Fstudent%2Fstudent_PNG93.png&f=1&nofb=1&ipt=0d0c54759949bb26c8d6cf13bfcf5eac7c4a93dc429821e3fb3ebe37ccc3b5dd",
-        desc: "Hola"
+        photo: "imagen_equipo/alumno2.jpeg",
+        name: "Alex Ivan Mexicano Zuñiga",
+        role: "Estudiante de Ingeniería en Sistemas Computacionales",
+        desc: "Soy estudiante de la carrera de ingenieria en sistemas computacionales, me gusta el futbol, y ver series.",
+        status: "Backend Developer",
+        color: "#f97316", // Naranja
+        github: "https://github.com/alex-mexicano"
+    },
+    {
+        photo: "Imagenes/alumno6.jpg",
+        name: "Oswaldo Muñiz",
+        role: "Estudiante de Ingeniería en Sistemas Computacionales",
+        desc: "Estudiante apasionado por el desarrollo backend y las bases de datos. Me gusta resolver problemas complejos y aprender nuevas tecnologías.",
+        status: "Backend Developer",
+        color: "#f97316", // Naranja
+        github: "https://github.com/oswa900"
+    },
+    {
+        photo: "Imagenes/alumno5.jpg",
+        name: "Natanael Barrera",
+        role: "Estudiante de Ingeniería en Sistemas Computacionales",
+        desc: "Especializado en frontend y experiencias de usuario interactivas. Disfruto crear interfaces atractivas y funcionales.",
+        status: "Frontend Developer",
+        color: "#3b82f6", // Azul
+        github: "https://github.com/nata23-dev"
+    },
+    {
+        photo: "imagen_equipo/alumno5.jpg", // Ajusta la ruta según tu estructura
+        name: "María García López",
+        role: "Estudiante de Ingeniería en Sistemas Computacionales",
+        desc: "Apasionada por la ciberseguridad y el desarrollo de software seguro. Me gusta participar en hackathons y retos de programación.",
+        status: "Security Developer",
+        color: "#10b981", // Verde
+        github: "https://github.com/maria-garcia"
+    },
+    {
+        photo: "imagen_equipo/alumno6.jpg", // Ajusta la ruta según tu estructura
+        name: "Carlos Rodríguez Pérez",
+        role: "Estudiante de Ingeniería en Sistemas Computacionales",
+        desc: "Entusiasta del desarrollo móvil y la inteligencia artificial. Siempre buscando nuevos desafíos y oportunidades de aprendizaje.",
+        status: "Mobile Developer",
+        color: "#8b5cf6", // Púrpura
+        github: "https://github.com/carlos-rodriguez"
     }
 ];
 
-// Controles del DOM para la sección del integrante
-const memberNameEl = document.getElementById('memberName');
-const memberPhotoEl = document.getElementById('memberPhoto');
-const memberDescEl = document.getElementById('memberDesc');
-const nextMemberButton = document.getElementById('nextMemberButton');
+let memberIndex = 0;
 
-// Índice del miembro mostrado actualmente
-let currentMember = 0;
-
-// Función para mostrar un miembro por índice
-function showMember(i) {
-    const m = members[i];
-    memberNameEl.textContent = m.name;
-    memberPhotoEl.src = m.photo;
-    memberPhotoEl.alt = `Foto de ${m.name}`;
-    memberDescEl.textContent = m.desc;
+// Función para actualizar el reloj
+function updateClock() {
+    const timeDisplay = document.getElementById("time-display");
+    const now = new Date();
+    const horas = String(now.getHours()).padStart(2, "0");
+    const minutos = String(now.getMinutes()).padStart(2, "0");
+    const segundos = String(now.getSeconds()).padStart(2, "0");
+    timeDisplay.innerHTML = `🕒 Hora local: ${horas}:${minutos}:${segundos}`;
 }
 
-// Mostrar el primer integrante al cargar la página
-showMember(currentMember);
+// Función para cambiar de integrante
+function handleSwitch(event) {
+    const memberSection = document.getElementById("member-section");
+    const photo = document.getElementById("member-photo");
+    const name = document.getElementById("member-name");
+    const role = document.getElementById("member-role-title");
+    const desc = document.getElementById("member-desc");
+    const statusBadge = document.getElementById("member-status");
+    const githubLink = document.getElementById("member-github");
+    const switchBtn = document.getElementById("switchButton");
 
-// Evento para alternar entre integrantes
-nextMemberButton.addEventListener('click', function () {
-    // Alternamos entre 0 y 1 (o avanzamos cíclicamente si hay más)
-    currentMember = (currentMember + 1) % members.length;
-    showMember(currentMember);
+    // Animación de salida
+    memberSection.style.opacity = "0";
+    memberSection.style.transform = "translateY(10px)";
+
+    setTimeout(() => {
+        memberIndex = (memberIndex + 1) % teamMembers.length;
+        const member = teamMembers[memberIndex];
+
+        // Actualizar contenido
+        photo.src = member.photo;
+        name.textContent = member.name;
+        role.textContent = member.role;
+        desc.innerHTML = member.desc;
+        statusBadge.textContent = member.status;
+        githubLink.href = member.github;
+
+        // Actualizar estilos del badge
+        statusBadge.style.backgroundColor = `${member.color}20`; // 20 es opacidad en hex (~12%)
+        statusBadge.style.color = member.color;
+
+        // Actualizar texto del botón según el índice
+        const nextIndex = (memberIndex + 1) % teamMembers.length;
+        const nextMember = teamMembers[nextIndex];
+        switchBtn.innerHTML = `Siguiente: ${nextMember.name.split(' ')[0]} ➜`;
+
+        // Manejar error de imagen
+        photo.onerror = () => {
+            console.log("No se pudo cargar la imagen:", member.photo);
+            photo.src = "https://via.placeholder.com/200x200?text=" + member.name.split(' ')[0];
+        };
+
+        // Animación de entrada
+        memberSection.style.opacity = "1";
+        memberSection.style.transform = "translateY(0)";
+    }, 300);
+}
+
+// Función para cambiar a un integrante específico (opcional - para navegación directa)
+function goToMember(index) {
+    if (index < 0 || index >= teamMembers.length) return;
+    
+    const memberSection = document.getElementById("member-section");
+    const photo = document.getElementById("member-photo");
+    const name = document.getElementById("member-name");
+    const role = document.getElementById("member-role-title");
+    const desc = document.getElementById("member-desc");
+    const statusBadge = document.getElementById("member-status");
+    const githubLink = document.getElementById("member-github");
+    const switchBtn = document.getElementById("switchButton");
+
+    memberSection.style.opacity = "0";
+    memberSection.style.transform = "translateY(10px)";
+
+    setTimeout(() => {
+        memberIndex = index;
+        const member = teamMembers[memberIndex];
+
+        photo.src = member.photo;
+        name.textContent = member.name;
+        role.textContent = member.role;
+        desc.innerHTML = member.desc;
+        statusBadge.textContent = member.status;
+        githubLink.href = member.github;
+
+        statusBadge.style.backgroundColor = `${member.color}20`;
+        statusBadge.style.color = member.color;
+
+        const nextIndex = (memberIndex + 1) % teamMembers.length;
+        const nextMember = teamMembers[nextIndex];
+        switchBtn.innerHTML = `Siguiente: ${nextMember.name.split(' ')[0]} ➜`;
+
+        photo.onerror = () => {
+            photo.src = "https://via.placeholder.com/200x200?text=" + member.name.split(' ')[0];
+        };
+
+        memberSection.style.opacity = "1";
+        memberSection.style.transform = "translateY(0)";
+    }, 300);
+}
+
+// Inicialización
+document.addEventListener("DOMContentLoaded", () => {
+    // Iniciar reloj
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Botón cambiar color de fondo
+    document.getElementById("colorButton").addEventListener("click", () => {
+        themeIndex = (themeIndex + 1) % bgThemes.length;
+        document.body.style.backgroundColor = bgThemes[themeIndex];
+        
+        // Cambiar color de la tarjeta
+        const memberSection = document.getElementById("member-section");
+        memberDivColorIndex = (memberDivColorIndex + 1) % memberDivColors.length;
+        memberSection.style.backgroundColor = memberDivColors[memberDivColorIndex];
+        memberSection.style.transition = "background-color 0.4s ease";
+    });
+
+    // Botón cambiar integrante
+    document.getElementById("switchButton").addEventListener("click", handleSwitch);
+
+    // Configurar badge inicial
+    const firstBadge = document.getElementById("member-status");
+    firstBadge.style.backgroundColor = "#3b82f620";
+    firstBadge.style.color = "#3b82f6";
+
+    // Mostrar total de integrantes (opcional - puedes agregar un elemento en el HTML)
+    console.log(`Total de integrantes: ${teamMembers.length}`);
 });
+
+// Función para obtener el integrante actual (útil para debugging)
+function getCurrentMember() {
+    return teamMembers[memberIndex];
+}
+
+// Función para obtener todos los integrantes
+function getAllMembers() {
+    return teamMembers;
+}

@@ -1,76 +1,294 @@
-/* Estilos generales */
+/* ===== ESTILOS GENERALES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
     text-align: center;
-    margin-top: 50px;
-    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    background-color: #ccebff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.5s ease;
 }
 
-/* Estilo para el título */
+.main-content {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ===== TIPOGRAFÍA ===== */
 h1 {
-    color: #333;
+    color: #0000003f;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
 }
 
-/* Estilo para el párrafo */
-p {
-    color: #666;
-    font-size: 18px;
+#team-name {
+    color: #0000008b;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
 }
 
-/* Estilo para el botón */
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    background-color: #007BFF;
+/* ===== CONTENEDOR DE HORA ===== */
+#time-container {
+    width: 30%;
+    max-width: 200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.419);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.5s ease;
+}
+
+#time-display {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #475569;
+}
+
+/* ===== SECCIÓN DEL INTEGRANTE ===== */
+#member-section {
+    width: 60%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo-wrapper {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 10px 0;
+    border: 4px solid #f97316;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+#member-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.photo-wrapper:hover #member-photo {
+    transform: scale(1.1);
+}
+
+.info-text {
+    width: 100%;
+    text-align: center;
+}
+
+#member-name {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 1rem 0 0.5rem;
+}
+
+#member-role-title {
+    font-size: 1rem;
+    color: #64748b;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+#member-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #334155;
+    margin: 1rem 0;
+    padding: 1rem 0;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* ===== BADGES Y ENLACES ===== */
+.meta-info {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+}
+
+#member-status {
+    background-color: #f9731615;
+    color: #f97316;
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #1e293b;
     color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.github-link:hover {
+    background: #f97316;
+    transform: translateY(-2px);
+}
+
+/* ===== BOTONES ===== */
+.controles {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 15px;
+    background-color: #ffffffc5;
+    border: 2px solid transparent;
     border-radius: 5px;
+    color: gray;
     cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #ffffff;
+    color: black;
+    padding: 13px 18px;
+    border-color: #f97316;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo para la tarjeta del integrante */
-.member-card {
-    display: inline-block;
-    width: 260px;
-    padding: 16px;
+#colorButton {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+#switchButton {
+    background: #1e293b;
+    color: white;
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
     background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    padding: 1.5rem;
     text-align: center;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 2rem;
 }
 
-.member-card img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 6px;
-    display: block;
-    margin: 8px auto;
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.buttons {
-    margin-top: 20px;
-    display: flex;
-    gap: 12px;
-    justify-content: center;
+.footer-content p {
+    color: #64748b;
+    margin: 0.3rem 0;
 }
 
-/* Mantener contraste en botones y foco accesible */
-button:focus {
-    outline: 3px solid rgba(0, 123, 255, 0.4);
+.social-links {
+    margin-top: 0.5rem;
+}
+
+.social-links a {
+    color: #f97316;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.social-links a:hover {
+    color: #1e293b;
+    text-decoration: underline;
+}
+
+.separator {
+    color: #cbd5e1;
+    margin: 0 0.5rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    #team-name {
+        font-size: 2rem;
+    }
+    
+    #member-section {
+        width: 90%;
+        padding: 1rem;
+    }
+    
+    .photo-wrapper {
+        width: 150px;
+        height: 150px;
+    }
+    
+    #time-container {
+        width: 80%;
+    }
+    
+    .meta-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
 }
 
 @media (max-width: 480px) {
-    .member-card {
-        width: 90%;
+    body {
+        padding: 10px;
     }
-
-    .member-card img {
-        width: 160px;
-        height: 160px;
+    
+    .controles {
+        flex-direction: column;
+    }
+    
+    button {
+        width: 100%;
+        justify-content: center;
     }
 }

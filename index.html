@@ -1,34 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0"
-          name="viewport">
-    <title>Equipo Krangreburger</title>
-    <!-- Vinculamos el CSS externo -->
-    <link href="styles.css"
-          rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeBalance | Respetuosos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="Imagenes/favicon.png">
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-<h1>Equipo Krangreburger</h1>
-<p>Esta página está hecha con HTML, CSS y JavaScript.</p>
-<!-- Sección del integrante: foto + descripción -->
-<section id="memberSection">
-    <div class="member-card"
-         id="memberCard">
-        <h2 id="memberName">Alumno 1</h2>
-        <img alt="Foto del Alumno 1"
-             id="memberPhoto"
-             src="https://via.placeholder.com/200x200?text=Alumno+1">
-        <p id="memberDesc">Descripción breve del Alumno 1.</p>
-    </div>
-</section>
-<!-- Botones para probar JavaScript -->
-<div class="buttons">
-    <button id="colorButton">Cambiar color de fondo</button>
-    <button id="nextMemberButton">Mostrar siguiente integrante</button>
-</div>
-<!-- Vinculamos el archivo JS -->
-<script src="script.js"></script>
+    <main class="main-content">
+        <header>
+            <h1>Proyecto de Equipo</h1>
+            <h2 id="team-name">CodeBalance | Respetuosos</h2>
+            <div id="time-container">
+                <p id="time-display">🕒 Cargando hora local...</p>
+            </div>
+        </header>
+
+        <!-- Sección de integrante -->
+        <div id="member-section">
+            <div class="photo-wrapper">
+                <img id="member-photo" src="imagen_equipo/alumno1.webp" alt="Foto del integrante">
+            </div>
+
+            <div class="info-text">
+                <h2 id="member-name">Janet Arredondo Delgado</h2>
+                <p id="member-role-title">Estudiante de Ingeniería en Sistemas Computacionales</p>
+                
+                <div id="member-desc">
+                    Soy estudiante 6to. semestre de la carrera de ingenieria en sistemas computacionales, me gusta dibujar y escuchar música.
+                </div>
+
+                <div class="meta-info">
+                    <span id="member-status" class="status-badge">Frontend Developer</span>
+                    <a id="member-github" href="https://github.com/janet-arredondo" target="_blank" class="github-link">
+                        <span>💾</span> Ver GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botones de interacción -->
+        <div class="controles">
+            <button id="colorButton" title="Cambiar tema de fondo">
+                <span>🎨</span> Personalizar Fondo
+            </button>
+            <button id="switchButton" title="Ver siguiente integrante">
+                Siguiente compañero ➜
+            </button>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 <strong>CodeBalance | Respetuosos</strong></p>
+            <p>Laboratorio de Ingeniería de Software | Sesión 1</p>
+            <div class="social-links">
+                <a href="https://github.com/tu-repo" target="_blank">GitHub General</a>
+                <span class="separator">•</span>
+                <a href="#">LinkedIn</a>
+                <span class="separator">•</span>
+                <a href="#">Documentación</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
