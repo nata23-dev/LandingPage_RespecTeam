@@ -36,7 +36,7 @@ const teamMembers = [
         github: "https://github.com/oswa900"
     },
     {
-        photo: "Imagen_equipo/alumno5.jpg",
+        photo: "imagen_equipo/alumno5.jpg",
         name: "Natanael Barrera",
         role: "Estudiante de Ingeniería en Sistemas Computacionales",
         desc: "Especializado en frontend y experiencias de usuario interactivas. Disfruto crear interfaces atractivas y funcionales.",
